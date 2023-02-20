@@ -8,5 +8,5 @@ urlpatterns = [
     path('album-list/', views.AlbumListApiView.as_view()),
     path('track-list/', views.TrackListApiView.as_view()),
     path('musician-retrieve/<int:pk>/', views.MusicianRetrieveApiView.as_view()),
-
+    path('album-creation/', views.AlbumCreationApiView.as_view()),
 ]
