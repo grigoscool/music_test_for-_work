@@ -4,8 +4,9 @@ from .validators import validate_musician_name_start_from_capital
 
 
 class Musician(models.Model):
-    name = models.CharField(max_length=100,
-                            validators=[validate_musician_name_start_from_capital])
+    name = models.CharField(
+        max_length=100,
+        validators=[validate_musician_name_start_from_capital])
 
     def __str__(self):
         return self.name

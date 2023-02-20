@@ -1,13 +1,14 @@
 from rest_framework import generics
 from rest_framework import permissions
+
 from .models import Musician, Album, Track
+from .permissions import IsAdminOrReadOnly
 from .serializers import (
     MusicianSerializers,
     AlbumSerializers,
     TrackSerializers
 )
 
-from .permissions import IsAdminOrReadOnly
 
 class MusicianListApiView(generics.ListAPIView):
     """

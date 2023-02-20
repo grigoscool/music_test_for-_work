@@ -10,7 +10,8 @@ class MusicianSerializers(serializers.ModelSerializer):
 
 
 class AlbumSerializers(serializers.ModelSerializer):
-    track = serializers.SlugRelatedField(many=True, read_only=True, slug_field='title')
+    track = serializers.SlugRelatedField(
+        many=True, read_only=True, slug_field='title')
 
     class Meta:
         model = Album
@@ -18,7 +19,8 @@ class AlbumSerializers(serializers.ModelSerializer):
 
 
 class TrackSerializers(serializers.ModelSerializer):
-    album = serializers.SlugRelatedField(many=True, read_only=True, slug_field='title')
+    album = serializers.SlugRelatedField(
+        many=True, read_only=True, slug_field='title')
 
     class Meta:
         model = Track
