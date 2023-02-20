@@ -9,4 +9,5 @@ urlpatterns = [
     path('track-list/', views.TrackListApiView.as_view()),
     path('musician-retrieve/<int:pk>/', views.MusicianRetrieveApiView.as_view()),
     path('album-creation/', views.AlbumCreationApiView.as_view()),
+    path('track-delete/<int:pk>/', views.TrackDeleteApiView.as_view()),
 ]

@@ -7,10 +7,11 @@ from .serializers import (
     TrackSerializers
 )
 
+from .permissions import IsAdminOrReadOnly
 
 class MusicianListApiView(generics.ListAPIView):
     """
-    List of musicians
+    List of musicians.
     """
     queryset = Musician.objects.all()
     serializer_class = MusicianSerializers
@@ -19,7 +20,7 @@ class MusicianListApiView(generics.ListAPIView):
 
 class AlbumListApiView(generics.ListAPIView):
     """
-    List of albums
+    List of albums.
     """
     queryset = Album.objects.all()
     serializer_class = AlbumSerializers
@@ -28,7 +29,7 @@ class AlbumListApiView(generics.ListAPIView):
 
 class TrackListApiView(generics.ListAPIView):
     """
-    List of tracks
+    List of tracks.
     """
     queryset = Track.objects.all()
     serializer_class = TrackSerializers
@@ -37,7 +38,7 @@ class TrackListApiView(generics.ListAPIView):
 
 class MusicianRetrieveApiView(generics.RetrieveUpdateDestroyAPIView):
     """
-    Musician CRUD
+    Musician CRUD.
     """
     queryset = Musician.objects.all()
     serializer_class = MusicianSerializers
@@ -45,7 +46,16 @@ class MusicianRetrieveApiView(generics.RetrieveUpdateDestroyAPIView):
 
 class AlbumCreationApiView(generics.CreateAPIView):
     """
-    Creation of Album
+    Creation of Album.
     """
     queryset = Album.objects.all()
     serializer_class = AlbumSerializers
+
+
+class TrackDeleteApiView(generics.DestroyAPIView):
+    """
+    Delete track for admin, and read only for everybody.
+    """
+    queryset = Track.objects.all()
+    serializer_class = TrackSerializers
+    permission_classes = [IsAdminOrReadOnly]
